@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เตี๋ยวเรือน้ำตกป้ารี | สูตรอยุธยาแท้ น้ำซุปข้นคลั่ก ชามละ 20 บาท</title>
+  <meta name="description" content="เตี๋ยวเรือน้ำตกป้ารี สูตรอยุธยาแท้ น้ำซุปเคี่ยวข้ามคืน พริกคั่วเตาถ่าน กากหมูเจียวสดวันต่อวัน เริ่มต้นเพียง 20 บาท">
+  
+  <!-- Google Fonts: Prompt & Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700;800&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'sans-serif'],
+            display: ['Kanit', 'sans-serif'],
+          },
+          colors: {
+            boat: {
+              50: '#fdf8f6',
+              100: '#f2e8e5',
+              200: '#eaddd7',
+              300: '#e0a96d',
+              400: '#c86b36',
+              500: '#b43e1e', // แดงพริกคั่ว
+              600: '#942b15',
+              700: '#681c0f',
+              800: '#3d120a', // น้ำตกเข้มข้น
+              900: '#230a06',
+              dark: '#140806',
+            },
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #120705;
+      color: #f7f3f0;
+      font-family: 'Prompt', sans-serif;
+    }
+    .text-glow {
+      text-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
+    }
+    .badge-soup {
+      background: linear-gradient(135deg, #b43e1e, #681c0f);
+    }
+    .hero-bg {
+      background: linear-gradient(to bottom, rgba(20, 8, 6, 0.82), rgba(18, 7, 5, 0.98)),
+                  url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+  </style>
+</head>
+<body class="selection:bg-boat-500 selection:text-white">
+
+  <!-- ================= TOP NAVIGATION ================= -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-boat-dark/90 border-b border-white/10 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-boat-600 via-boat-500 to-gold-500 flex items-center justify-center shadow-lg shadow-boat-500/20 group-hover:scale-105 transition-transform">
+            <span class="text-2xl font-black font-display text-white">ป้</span>
+          </div>
+          <div>
+            <div class="font-display font-bold text-xl sm:text-2xl tracking-wide text-white group-hover:text-gold-400 transition-colors">
+              เตี๋ยวเรือน้ำตกป้ารี
+            </div>
+            <div class="text-xs text-boat-300 font-light tracking-wider">
+              สูตรอยุธยาแท้ • น้ำซุปข้นคลั่ก
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#highlights" class="text-gray-300 hover:text-gold-400 transition-colors">ทีเด็ดป้ารี</a>
+          <a href="#how-to-order" class="text-gray-300 hover:text-gold-400 transition-colors">วิธีสั่ง (ขายยังไง)</a>
+          <a href="#menu" class="text-gray-300 hover:text-gold-400 transition-colors">เมนู & ราคา</a>
+          <a href="#reviews" class="text-gray-300 hover:text-gold-400 transition-colors">รีวิวสายซด</a>
+          <a href="#location" class="text-gray-300 hover:text-gold-400 transition-colors">พิกัดร้าน</a>
+        </div>
+
+        <!-- Phone Action -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="tel:0891234567" class="inline-flex items-center gap-2 bg-gradient-to-r from-boat-500 to-boat-600 hover:from-boat-600 hover:to-boat-700 text-white px-4 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-boat-500/30 transition-all hover:scale-105">
+            <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i>
+            <span>โทรสั่ง / สอบถาม</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-boat-900 border-b border-white/10 px-6 py-5 space-y-4">
+      <a href="#highlights" class="block text-gray-200 hover:text-gold-400 py-1 font-medium">ทีเด็ดป้ารี</a>
+      <a href="#how-to-order" class="block text-gray-200 hover:text-gold-400 py-1 font-medium">วิธีสั่ง (ขายยังไง)</a>
+      <a href="#menu" class="block text-gray-200 hover:text-gold-400 py-1 font-medium">เมนู & ราคา</a>
+      <a href="#reviews" class="block text-gray-200 hover:text-gold-400 py-1 font-medium">รีวิวสายซด</a>
+      <a href="#location" class="block text-gray-200 hover:text-gold-400 py-1 font-medium">พิกัดร้าน & เวลาเปิดปิด</a>
+      <a href="tel:0891234567" class="flex items-center justify-center gap-2 bg-boat-500 text-white w-full py-2.5 rounded-xl font-semibold">
+        <i data-lucide="phone-call" class="w-4 h-4"></i> โทร: 089-123-4567
+      </a>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header class="hero-bg relative min-h-[90vh] flex items-center justify-center text-center px-4 py-16 sm:py-24 border-b border-white/10">
+    <div class="max-w-4xl mx-auto space-y-6">
+      
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-boat-500/30 border border-boat-400/40 text-gold-400 text-sm font-medium tracking-wide backdrop-blur-sm animate-pulse">
+        <i data-lucide="flame" class="w-4 h-4 text-gold-400"></i>
+        <span>การันตีความเข้มข้น สูตรอยุธยาแท้สืบทอดกว่า 30 ปี</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight text-white leading-tight">
+        เตี๋ยวเรือน้ำตกป้ารี<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-boat-300 to-amber-200 text-glow">
+          น้ำข้นคลั่ก ถึงใจ ไม่ต้องปรุง!
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 font-light leading-relaxed">
+        ซดแรกตาสว่างด้วยน้ำซุปสมุนไพร 12 ชนิด เคี่ยวข้ามคืนจนหวานกระดูก พริกผัดเตาถ่านหอมเตะจมูก 
+        <strong class="text-gold-400 font-semibold underline underline-offset-4 decoration-boat-500">เริ่มต้นเพียงชามละ 20 บาท</strong> ซ้อนชามกันให้สะใจ
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#how-to-order" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-boat-500 to-boat-600 hover:from-boat-600 hover:to-boat-700 text-white rounded-full font-bold text-lg shadow-xl shadow-boat-500/30 flex items-center justify-center gap-2 hover:scale-105 transition-all">
+          <span>ดูวิธีสั่ง & เมนูเด็ด</span>
+          <i data-lucide="arrow-down" class="w-5 h-5"></i>
+        </a>
+        <a href="#location" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full font-semibold text-lg backdrop-blur-sm flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="map-pin" class="w-5 h-5 text-gold-400"></i>
+          <span>ดูพิกัดร้าน & แผนที่</span>
+        </a>
+      </div>
+
+      <!-- Floating Stat Bar -->
+      <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="bg-boat-900/80 border border-white/10 backdrop-blur-md rounded-2xl p-4">
+          <div class="text-2xl sm:text-3xl font-black font-display text-gold-400">20.-</div>
+          <div class="text-xs text-gray-300 mt-1">ชามเล็กเริ่ม 20 บาท</div>
+        </div>
+        <div class="bg-boat-900/80 border border-white/10 backdrop-blur-md rounded-2xl p-4">
+          <div class="text-2xl sm:text-3xl font-black font-display text-gold-400">6 ชม.+</div>
+          <div class="text-xs text-gray-300 mt-1">เคี่ยวน้ำซุปกระดูกแท้</div>
+        </div>
+        <div class="bg-boat-900/80 border border-white/10 backdrop-blur-md rounded-2xl p-4">
+          <div class="text-2xl sm:text-3xl font-black font-display text-gold-400">100%</div>
+          <div class="text-xs text-gray-300 mt-1">กากหมูเจียวสดวันต่อวัน</div>
+        </div>
+        <div class="bg-boat-900/80 border border-white/10 backdrop-blur-md rounded-2xl p-4">
+          <div class="text-2xl sm:text-3xl font-black font-display text-gold-400">4.9 ★</div>
+          <div class="text-xs text-gray-300 mt-1">คะแนนรีวิวจากสายกิน</div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= SECTION 1: ทีเด็ดป้ารี (KEY HIGHLIGHTS) ================= -->
+  <section id="highlights" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-gold-400 font-semibold tracking-wider uppercase text-sm">SECRET OF DELICIOUS</span>
+      <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">
+        ทำไมสายก๋วยเตี๋ยวน้ำตก ต้องมาจบที่ <span class="text-boat-400">"ป้ารี"</span>
+      </h2>
+      <p class="text-gray-400 mt-3 text-base">
+        ไม่ใช่แค่น้ำซุปธรรมดา แต่ทุกชามผ่านความพิถีพิถันแบบดั้งเดิม ไม่หวงเครื่อง ไม่กั๊กสูตร
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="bg-gradient-to-b from-boat-900/60 to-boat-dark border border-white/10 hover:border-boat-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+        <div class="w-14 h-14 rounded-xl bg-boat-500/20 text-boat-400 flex items-center justify-center mb-5">
+          <i data-lucide="soup" class="w-8 h-8 text-gold-400"></i>
+        </div>
+        <h3 class="text-xl font-bold font-display text-white mb-2">น้ำซุปเข้มข้น 6 ชม.</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          เคี่ยวกระดูกเอียวเล้งกับสมุนไพรจีน-ไทย 12 ชนิด เลือดสดปรุงสุกร้อนๆ รสนวล ไม่คาว ซดคล่องคอจนหยดสุดท้าย
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gradient-to-b from-boat-900/60 to-boat-dark border border-white/10 hover:border-boat-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+        <div class="w-14 h-14 rounded-xl bg-boat-500/20 text-boat-400 flex items-center justify-center mb-5">
+          <i data-lucide="flame" class="w-8 h-8 text-boat-400"></i>
+        </div>
+        <h3 class="text-xl font-bold font-display text-white mb-2">พริกผัดเตาถ่านสูตรป้ารี</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          พริกแห้งจินดาคั่วเตาถ่านแล้วผัดน้ำมันเจียวหอมๆ เผ็ดสะใจ มีกลิ่นสโมคกี้เฉพาะตัวที่เป็นเอกลักษณ์ไม่เหมือนใคร
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-gradient-to-b from-boat-900/60 to-boat-dark border border-white/10 hover:border-boat-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+        <div class="w-14 h-14 rounded-xl bg-boat-500/20 text-boat-400 flex items-center justify-center mb-5">
+          <i data-lucide="sparkles" class="w-8 h-8 text-gold-400"></i>
+        </div>
+        <h3 class="text-xl font-bold font-display text-white mb-2">กากหมูเจียวสดวันต่อวัน</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          มันหมูคัดเกรดเจียวสดใหม่ทุกเช้า กากหมูชิ้นโต กรอบฟูสะท้านฟัน ไม่อมน้ำมัน ไม่เหม็นหืน เด็ดจนต้องสั่งเบิ้ล
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-gradient-to-b from-boat-900/60 to-boat-dark border border-white/10 hover:border-boat-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+        <div class="w-14 h-14 rounded-xl bg-boat-500/20 text-boat-400 flex items-center justify-center mb-5">
+          <i data-lucide="award" class="w-8 h-8 text-amber-400"></i>
+        </div>
+        <h3 class="text-xl font-bold font-display text-white mb-2">เนื้อตุ๋น & หมูนุ่ม ละลาย</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          หมูหมักนุ่มจนเข้าเนื้อ หมูตุ๋นและเนื้อน่องลายตุ๋นยาจีนจนเปื่อย นุ่มลิ้นแต่ยังคงความเด้ง ไม่เหนียวติดฟัน
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: ร้านนี้ขายยังไง? (HOW TO ORDER) ================= -->
+  <section id="how-to-order" class="py-20 bg-boat-900/40 border-y border-white/10 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-block bg-boat-500/30 text-gold-400 px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-2">
+          ORDERING GUIDE
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-display text-white">
+          ร้านนี้ขายยังไง? <span class="text-gold-400">4 สเต็ปสั่งอร่อยแบบเซียน</span>
+        </h2>
+        <p class="text-gray-400 mt-3 text-base">
+          มาถึงร้านไม่ต้องงง! ป้ารีจัดระบบสั่งง่าย ได้ไว ปรับรสชาติได้ตามใจชอบทุกชาม
+        </p>
+      </div>
+
+      <!-- Step Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="bg-boat-dark/80 border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500/50 transition-all">
+          <div class="absolute -top-3 -right-3 w-16 h-16 bg-boat-500/20 rounded-full flex items-end justify-start p-3 text-2xl font-black font-display text-boat-400">
+            01
+          </div>
+          <div class="text-gold-400 font-semibold text-sm mb-1">ขั้นตอนที่ 1</div>
+          <h3 class="text-xl font-bold font-display text-white mb-3">เลือกขนาดชาม</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="flex items-center gap-2 bg-white/5 p-2 rounded-lg">
+              <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+              <span><strong>ชามเล็ก 20.-</strong> : ไซส์กำลังดี เน้นกินหลายชาม ซ้อนชามสนุก</span>
+            </li>
+            <li class="flex items-center gap-2 bg-white/5 p-2 rounded-lg">
+              <span class="w-2 h-2 rounded-full bg-boat-400"></span>
+              <span><strong>ชามพิเศษ 60.-</strong> : จัดเต็ม ชามเดียวเครื่องแน่น อิ่มจุก</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-boat-dark/80 border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500/50 transition-all">
+          <div class="absolute -top-3 -right-3 w-16 h-16 bg-boat-500/20 rounded-full flex items-end justify-start p-3 text-2xl font-black font-display text-boat-400">
+            02
+          </div>
+          <div class="text-gold-400 font-semibold text-sm mb-1">ขั้นตอนที่ 2</div>
+          <h3 class="text-xl font-bold font-display text-white mb-3">เลือกเส้นที่ใช่</h3>
+          <div class="grid grid-cols-2 gap-2 text-xs text-gray-200">
+            <div class="bg-white/5 p-2.5 rounded-lg text-center font-medium border border-white/5">เส้นเล็ก (เหนียวนุ่ม)</div>
+            <div class="bg-white/5 p-2.5 rounded-lg text-center font-medium border border-white/5">เส้นหมี่ขาว (ซับน้ำซุปดี)</div>
+            <div class="bg-white/5 p-2.5 rounded-lg text-center font-medium border border-white/5">เส้นใหญ่ (นุ่มลื่นคอ)</div>
+            <div class="bg-white/5 p-2.5 rounded-lg text-center font-medium border border-white/5 text-gold-400">บะหมี่เป๊าะ (ขายดี!)</div>
+            <div class="col-span-2 bg-white/5 p-2 rounded-lg text-center font-medium border border-white/5 text-gray-400">เกาเหลา (สายเน้นเครื่อง)</div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-boat-dark/80 border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500/50 transition-all">
+          <div class="absolute -top-3 -right-3 w-16 h-16 bg-boat-500/20 rounded-full flex items-end justify-start p-3 text-2xl font-black font-display text-boat-400">
+            03
+          </div>
+          <div class="text-gold-400 font-semibold text-sm mb-1">ขั้นตอนที่ 3</div>
+          <h3 class="text-xl font-bold font-display text-white mb-3">เลือกเครื่อง (หมู / เนื้อ)</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="p-2 rounded-lg bg-white/5">
+              <span class="text-boat-300 font-semibold">สายหมู :</span> หมูหมักนุ่ม, ตับสดลวกหวาน, หมูตุ๋น, ลูกชิ้นหมูแท้
+            </li>
+            <li class="p-2 rounded-lg bg-white/5">
+              <span class="text-gold-400 font-semibold">สายเนื้อ :</span> เนื้อสดลวกสะดุ้ง, เนื้อน่องลายตุ๋น, เอ็นแก้ว, สไบนาง
+            </li>
+          </ul>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-boat-dark/80 border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-gold-500/50 transition-all">
+          <div class="absolute -top-3 -right-3 w-16 h-16 bg-boat-500/20 rounded-full flex items-end justify-start p-3 text-2xl font-black font-display text-boat-400">
+            04
+          </div>
+          <div class="text-gold-400 font-semibold text-sm mb-1">ขั้นตอนที่ 4</div>
+          <h3 class="text-xl font-bold font-display text-white mb-3">เลือกระดับความเผ็ด</h3>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex items-center justify-between p-2 rounded bg-boat-500/20 border border-boat-500/40 text-white font-medium">
+              <span>🌶️🌶️ เผ็ดมาตรฐานป้ารี</span>
+              <span class="text-[10px] bg-boat-500 px-1.5 py-0.5 rounded text-white">แนะนำ!</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded bg-white/5 text-gray-300">
+              <span>🌶️ เผ็ดน้อย</span>
+              <span class="text-gray-400">เผ็ดเบาๆ</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded bg-white/5 text-gray-300">
+              <span>❌ ไม่เผ็ด / ไม่พริก</span>
+              <span class="text-gray-400">สำหรับเด็ก</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded bg-red-900/40 text-red-200 border border-red-800">
+              <span>🔥🔥 เผ็ดพ่นไฟ</span>
+              <span class="text-red-300 font-bold">สายท้าดวล</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Combo Recommendation Note -->
+      <div class="mt-10 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-boat-800/80 via-boat-700/60 to-boat-800/80 border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 rounded-full bg-gold-400 text-boat-900 flex items-center justify-center shrink-0">
+            <i data-lucide="lightbulb" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base">สูตรฟินคอมโบสไตล์ป้ารี:</h4>
+            <p class="text-sm text-gray-200">
+              สั่ง "เส้นเล็กน้ำตกหมูเผ็ดมาตรฐาน 2 ชาม + กากหมูเจียว 1 ถ้วย + แคบหมู 1 ห่อ" เทกากหมูลงในน้ำซุปตอนร้อนๆ ฟินที่สุดในสามโลก!
+            </p>
+          </div>
+        </div>
+        <a href="#menu" class="shrink-0 px-5 py-2.5 bg-gold-400 hover:bg-gold-500 text-boat-950 font-bold rounded-xl text-sm transition-all shadow-md">
+          เลือกดูเมนูเลย
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: เมนู & ราคา (MENU & PRICING) ================= -->
+  <section id="menu" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-gold-400 font-semibold tracking-wider uppercase text-sm">SIGNATURE MENU</span>
+      <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">
+        เมนูเด็ด & ราคาสบายกระเป๋า
+      </h2>
+      <p class="text-gray-400 mt-3 text-base">
+        เลือกอร่อยได้ทั้งก๋วยเตี๋ยวชามโปรด เครื่องเคียงกรุบกรอบ และขนมถ้วยหวานมันตบท้าย
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+        <button onclick="filterMenu('all')" class="menu-tab active px-5 py-2 rounded-full text-sm font-semibold transition-all bg-boat-500 text-white shadow-md shadow-boat-500/30" data-cat="all">
+          ทั้งหมด
+        </button>
+        <button onclick="filterMenu('noodles')" class="menu-tab px-5 py-2 rounded-full text-sm font-semibold transition-all bg-white/5 hover:bg-white/10 text-gray-300" data-cat="noodles">
+          ก๋วยเตี๋ยวเรือ
+        </button>
+        <button onclick="filterMenu('sides')" class="menu-tab px-5 py-2 rounded-full text-sm font-semibold transition-all bg-white/5 hover:bg-white/10 text-gray-300" data-cat="sides">
+          เครื่องเคียง / ท็อปปิ้ง
+        </button>
+        <button onclick="filterMenu('dessert')" class="menu-tab px-5 py-2 rounded-full text-sm font-semibold transition-all bg-white/5 hover:bg-white/10 text-gray-300" data-cat="dessert">
+          ของหวาน & เครื่องดื่ม
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Cards Grid -->
+    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Item 1: เตี๋ยวเรือหมูน้ำตกชามเล็ก -->
+      <div class="menu-item noodles bg-boat-dark border border-white/10 rounded-2xl overflow-hidden hover:border-boat-500/60 transition-all duration-300 group shadow-lg">
+        <div class="relative h-48 overflow-hidden bg-boat-900">
+          <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="เตี๋ยวเรือน้ำตกหมูชามเล็ก" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-boat-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+            🔥 เมนูขายดีอันดับ 1
+          </span>
+          <span class="absolute bottom-3 right-3 bg-boat-dark/90 backdrop-blur-md text-gold-400 font-display font-black text-xl px-3 py-1 rounded-xl border border-white/10">
+            20.-
+          </span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold font-display text-white group-hover:text-gold-400 transition-colors">
+            เตี๋ยวเรือน้ำตกหมู (ชามเล็ก)
+          </h3>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+            หมูหมักนุ่ม ลูกชิ้นหมู ตับสดลวกหวาน น้ำตกเข้มข้นจัดจ้าน ขนาดพอดีคำ ซ้อนชามสนุก
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 2: เตี๋ยวเรือเนื้อตุ๋นชามพิเศษ -->
+      <div class="menu-item noodles bg-boat-dark border border-white/10 rounded-2xl overflow-hidden hover:border-boat-500/60 transition-all duration-300 group shadow-lg">
+        <div class="relative h-48 overflow-hidden bg-boat-900">
+          <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&w=600&q=80" alt="เตี๋ยวเรือเนื้อตุ๋น" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+            🥩 พรีเมียมสายเนื้อ
+          </span>
+          <span class="absolute bottom-3 right-3 bg-boat-dark/90 backdrop-blur-md text-gold-400 font-display font-black text-xl px-3 py-1 rounded-xl border border-white/10">
+            70.-
+          </span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold font-display text-white group-hover:text-gold-400 transition-colors">
+            เตี๋ยวเรือเนื้อน่องลายตุ๋น (ชามพิเศษ)
+          </h3>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+            เนื้อน่องลายตุ๋นเปื่อยนุ่ม เอ็นแก้วเคี้ยวหนึบ ลูกชิ้นเนื้อแท้ พร้อมน้ำตกสูตรลับ
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 3: เกาเหลาหม้อไฟน้ำตก -->
+      <div class="menu-item noodles bg-boat-dark border border-white/10 rounded-2xl overflow-hidden hover:border-boat-500/60 transition-all duration-300 group shadow-lg">
+        <div class="relative h-48 overflow-hidden bg-boat-900">
+          <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=600&q=80" alt="เกาเหลาหม้อไฟ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-boat-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+            🍲 ซดสะใจ 2-3 คน
+          </span>
+          <span class="absolute bottom-3 right-3 bg-boat-dark/90 backdrop-blur-md text-gold-400 font-display font-black text-xl px-3 py-1 rounded-xl border border-white/10">
+            159.-
+          </span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold font-display text-white group-hover:text-gold-400 transition-colors">
+            เกาเหลาน้ำตกหม้อไฟรวมมิตร
+          </h3>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+            จัดเต็มทั้งหมูสด หมูตุ๋น ตับ ลูกชิ้น ผักบุ้งกรอบ เสิร์ฟร้อนฉ่าพร้อมข้าวสวยร้อนๆ
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 4: กากหมูเจียวสดทรงเครื่อง -->
+      <div class="menu-item sides bg-boat-dark border border-white/10 rounded-2xl overflow-hidden hover:border-boat-500/60 transition-all duration-300 group shadow-lg">
+        <div class="relative h-48 overflow-hidden bg-boat-900">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="กากหมูเจียวสด" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-gold-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+            ⭐ ขาดไม่ได้
+          </span>
+          <span class="absolute bottom-3 right-3 bg-boat-dark/90 backdrop-blur-md text-gold-400 font-display font-black text-xl px-3 py-1 rounded-xl border border-white/10">
+            25.-
+          </span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold font-display text-white group-hover:text-gold-400 transition-colors">
+            กากหมูเจียวสดกระทะร้อน
+          </h3>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+            เจียวใหม่วันต่อวัน คลุกกระเทียมเจียวหอมๆ กรอบฟูไม่อมน้ำมัน ใส่ในชามก๋วยเตี๋ยวแล้วฟินสุดๆ
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 5: เกี๊ยวทอด & แคบหมูโบราณ -->
+      <div class="menu-item sides bg-boat-dark border border-white/10 rounded-2xl overflow-hidden hover:border-boat-500/60 transition-all duration-300 group shadow-lg">
+        <div class="relative h-48 overflow-hidden bg-boat-900">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="แคบหมูและเกี๊ยวทอด" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute bottom-3 right-3 bg-boat-dark/90 backdrop-blur-md text-gold-400 font-display font-black text-xl px-3 py-1 rounded-xl border border-white/10">
+            15.-
+          </span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold font-display text-white group-hover:text-gold-400 transition-colors">
+            เกี๊ยวกรอบทอง / แคบหมูไร้มัน
+          </h3>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+            เกี๊ยวทอดกรอบแผ่นบาง หรือแคบหมูกรอบแบบโบราณ จิ้มน้ำซุปดูดความเข้มข้นเคี้ยวเพลิน
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 6: ขนมถ้วยใบเตยกะทิสด -->
+      <div class="menu-item dessert bg-boat-dark border border-white/10 rounded-2xl overflow-hidden hover:border-boat-500/60 transition-all duration-300 group shadow-lg">
+        <div class="relative h-48 overflow-hidden bg-boat-900">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="ขนมถ้วยโบราณ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+            🥥 ดับเผ็ดแก้เลี่ยน
+          </span>
+          <span class="absolute bottom-3 right-3 bg-boat-dark/90 backdrop-blur-md text-gold-400 font-display font-black text-xl px-3 py-1 rounded-xl border border-white/10">
+            คู่ละ 12.-
+          </span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold font-display text-white group-hover:text-gold-400 transition-colors">
+            ขนมถ้วยใบเตยกะทิสด (วางทุกโต๊ะ)
+          </h3>
+          <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+            หน้ากะทิเค็มมันนวลลิ้น ตัวขนมหวานหอมใบเตยแท้ๆ นึ่งสดใหม่ กินตัดเผ็ดหลังซดเตี๋ยวคือที่สุด
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Drink Bar Strip -->
+    <div class="mt-8 bg-boat-900/60 border border-white/10 rounded-2xl p-4 sm:p-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-boat-500/30 text-gold-400 flex items-center justify-center">
+          <i data-lucide="coffee" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-sm sm:text-base">น้ำสมุนไพรเย็นชื่นใจ (แก้วละ 20.-)</h4>
+          <p class="text-xs text-gray-400">โอเลี้ยงยกล้อ, ชาดำเย็น, เก๊กฮวยโบราณ, ลำไยเนื้อแน่น, กระเจี๊ยบพุทราจีน</p>
+        </div>
+      </div>
+      <div class="text-xs text-gold-400 bg-gold-400/10 border border-gold-400/20 px-3 py-1.5 rounded-full font-medium">
+        🧊 น้ำแข็งเปล่าแก้วละ 2.-
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= SECTION 4: รีวิวสายซด (REVIEWS) ================= -->
+  <section id="reviews" class="py-20 bg-boat-900/30 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-gold-400 font-semibold tracking-wider uppercase text-sm">CUSTOMER LOVE</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-1">
+          เสียงการันตีจากสายซดตัวจริง
+        </h2>
+        <div class="flex items-center justify-center gap-1 mt-3 text-gold-400">
+          <i data-lucide="star" class="w-5 h-5 fill-gold-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-gold-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-gold-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-gold-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-gold-400"></i>
+          <span class="text-white font-bold ml-2 text-sm">4.9 / 5.0 (มากกว่า 300+ รีวิว)</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1 -->
+        <div class="bg-boat-dark border border-white/10 rounded-2xl p-6 relative">
+          <div class="flex items-center gap-1 text-gold-400 mb-3">
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">
+            "น้ำซุปข้นคลั่กสมคำร่ำลือจริงๆ กลิ่นพริกคั่วคือหอมเตะจมูกตั้งแต่เดินเข้าร้าน สั่งชามเล็กซ้อนไป 6 ชาม กากหมูคือห้ามพลาดเด็ดขาด กรอบสะท้านฟันมาก!"
+          </p>
+          <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+            <div class="w-10 h-10 rounded-full bg-boat-600 flex items-center justify-center font-bold text-white text-sm">
+              คุณเอ
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-white">คุณเอกภพ สายแดก</div>
+              <div class="text-xs text-gray-500">Google Local Guide (Level 7)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-boat-dark border border-white/10 rounded-2xl p-6 relative">
+          <div class="flex items-center gap-1 text-gold-400 mb-3">
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">
+            "รสชาติไม่ต้องปรุงเพิ่มเลย ป้ารีปรุงมาเปรี้ยว หวาน เผ็ด เค็ม ครบรสแบบฉบับก๋วยเตี๋ยวเรือแท้ๆ ตับลวกมานุ่มหวานพอดี ไม่สุกเกินไป ประทับใจมากค่ะ"
+          </p>
+          <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+            <div class="w-10 h-10 rounded-full bg-gold-600 flex items-center justify-center font-bold text-white text-sm">
+              คุณน
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-white">น้องแนน Foodie</div>
+              <div class="text-xs text-gray-500">Facebook Reviewer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-boat-dark border border-white/10 rounded-2xl p-6 relative">
+          <div class="flex items-center gap-1 text-gold-400 mb-3">
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-gold-400"></i>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">
+            "ชามละ 20 บาทในยุคนี้คือคุ้มเกินเบอร์มาก หมูหมักนุ่มจริง ขนมถ้วยวางบนโต๊ะหยิบกินเพลินไป 3 คู่ตัดเผ็ดได้ดีสุดๆ ร้านสะอาด บริการไว ที่จอดรถสะดวก"
+          </p>
+          <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+            <div class="w-10 h-10 rounded-full bg-boat-500 flex items-center justify-center font-bold text-white text-sm">
+              ลุงป
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-white">ลุงป้อมพาชิม</div>
+              <div class="text-xs text-gray-500">TikTok Food Creator</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: พิกัดร้าน & แผนที่ (LOCATION & INFO) ================= -->
+  <section id="location" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-gold-400 font-semibold tracking-wider uppercase text-sm">FIND US</span>
+      <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-1">
+        พิกัดร้าน & เวลาเปิดให้บริการ
+      </h2>
+      <p class="text-gray-400 mt-2 text-base">
+        แวะมาซดความอร่อยกันได้ทุกวัน เดินทางสะดวก มีที่จอดรถหน้าร้าน
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left: Shop Info Card -->
+      <div class="lg:col-span-5 bg-boat-dark border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        
+        <div>
+          <h3 class="text-2xl font-bold font-display text-white mb-2">เตี๋ยวเรือน้ำตกป้ารี</h3>
+          <p class="text-gray-400 text-sm">
+            ซอยพหลโยธิน (ใกล้จุดขึ้นลงทางด่วน) มีป้ายผ้าใบสีแดงเด่นหน้าร้าน
+          </p>
+        </div>
+
+        <div class="space-y-4 text-sm">
+          
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-boat-500/20 text-gold-400 flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-white">เวลาเปิด-ปิด</div>
+              <div class="text-gray-300">เปิดทุกวัน : 09:30 - 18:00 น.</div>
+              <div class="text-xs text-boat-300">(ของหมดก่อนเวลา ปิดเร็ว แนะนำมาก่อนบ่ายสาม)</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-boat-500/20 text-gold-400 flex items-center justify-center shrink-0">
+              <i data-lucide="car" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-white">ที่จอดรถ</div>
+              <div class="text-gray-300">ลานจอดรถหน้าร้านและข้างร้าน จอดได้ 25 คัน (ฟรี)</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-boat-500/20 text-gold-400 flex items-center justify-center shrink-0">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-white">เบอร์โทรศัพท์</div>
+              <a href="tel:0891234567" class="text-gold-400 hover:underline font-bold text-base">089-123-4567</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-boat-500/20 text-gold-400 flex items-center justify-center shrink-0">
+              <i data-lucide="credit-card" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-white">การชำระเงิน</div>
+              <div class="text-gray-300">เงินสด / สแกนคิวอาร์โค้ด พร้อมเพย์ ทุกธนาคาร</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="flex-1 py-3 px-4 bg-gradient-to-r from-boat-500 to-boat-600 hover:from-boat-600 hover:to-boat-700 text-white font-bold rounded-xl text-center text-sm shadow-md flex items-center justify-center gap-2">
+            <i data-lucide="navigation" class="w-4 h-4"></i>
+            <span>กดเปิด Google Maps</span>
+          </a>
+          <a href="tel:0891234567" class="py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-center text-sm flex items-center justify-center gap-2 border border-white/10">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>โทรหาร้าน</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Interactive Map Simulation -->
+      <div class="lg:col-span-7 bg-boat-dark border border-white/10 rounded-3xl overflow-hidden shadow-xl h-[420px] relative">
+        <!-- Interactive Simulated Map Container -->
+        <iframe 
+          title="Google Maps"
+          class="w-full h-full border-0 filter grayscale contrast-125 opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2977759882956!2d100.53488251525042!3d13.765681690338787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ec1e9c2c611%3A0x633d7b8763567086!2z4Lit4LiZ4Li44Lin4Liy4Lin4Lij4Li14Lii4LmMIOC4p-C4seC4meC4geC4o-C4o-C4kOC4tOC4qg!5e0!3m2!1sth!2sth!4v1655000000000!5m2!1sth!2sth" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        
+        <!-- Map Overlay Floating Pin Card -->
+        <div class="absolute bottom-4 left-4 right-4 sm:right-auto bg-boat-dark/95 backdrop-blur-md border border-white/20 p-4 rounded-2xl shadow-2xl flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-boat-500 flex items-center justify-center text-white shrink-0 animate-bounce">
+            <i data-lucide="map-pin" class="w-5 h-5 text-gold-400"></i>
+          </div>
+          <div>
+            <div class="text-white font-bold text-sm">เตี๋ยวเรือน้ำตกป้ารี</div>
+            <div class="text-xs text-gray-300">จุดสังเกต: ใต้สะพานลอย มีต้นไทรใหญ่</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-boat-dark border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <div class="flex items-center justify-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-boat-600 flex items-center justify-center font-black font-display text-white text-base">
+          ป้
+        </div>
+        <span class="font-display font-bold text-white text-lg">เตี๋ยวเรือน้ำตกป้ารี</span>
+      </div>
+      <p class="text-gray-400 max-w-md mx-auto text-xs leading-relaxed">
+        สูตรอยุธยาแท้ต้นตำรับ ความเข้มข้นที่สัมผัสได้ตั้งแต่ชามแรก ชามละ 20 บาท ซ้อนชามให้สูง สะกิดต่อมความอร่อย
+      </p>
+      <div class="text-xs text-gray-400 pt-4 border-t border-white/5">
+        &copy; 2026 เตี๋ยวเรือน้ำตกป้ารี. All rights reserved. • เว็บไซต์แนะนำร้านอย่างเป็นทางการ
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on clicking any link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Filter Menu Items
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      const tabs = document.querySelectorAll('.menu-tab');
+
+      // Update button styling
+      tabs.forEach(tab => {
+        if (tab.dataset.cat === category) {
+          tab.classList.remove('bg-white/5', 'text-gray-300');
+          tab.classList.add('bg-boat-500', 'text-white', 'shadow-md', 'shadow-boat-500/30');
+        } else {
+          tab.classList.remove('bg-boat-500', 'text-white', 'shadow-md', 'shadow-boat-500/30');
+          tab.classList.add('bg-white/5', 'text-gray-300');
+        }
+      });
+
+      // Filter cards
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
